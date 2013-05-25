@@ -1,0 +1,385 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 1991-2012 Altera Corporation
+# Your use of Altera Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Altera Program License 
+# Subscription Agreement, Altera MegaCore Function License 
+# Agreement, or other applicable license agreement, including, 
+# without limitation, that your use is for the sole purpose of 
+# programming logic devices manufactured by Altera and sold by 
+# Altera or its authorized distributors.  Please refer to the 
+# applicable agreement for further details.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus II 32-bit
+# Version 12.1 Build 177 11/07/2012 SJ Web Edition
+# Date created = 02:06:11  April 22, 2013
+#
+# -------------------------------------------------------------------------- #
+#
+# Notes:
+#
+# 1) The default values for assignments are stored in the file:
+#		Android2FPGAMemoryMap_assignment_defaults.qdf
+#    If this file doesn't exist, see file:
+#		assignment_defaults.qdf
+#
+# 2) Altera recommends that you do not modify this file. This
+#    file is updated automatically by the Quartus II software
+#    and any changes you make may be lost or overwritten.
+#
+# -------------------------------------------------------------------------- #
+
+
+set_global_assignment -name FAMILY "Cyclone IV E"
+set_global_assignment -name DEVICE EP4CE22F17C6
+set_global_assignment -name TOP_LEVEL_ENTITY DE0_NANO
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 12.1
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "02:06:11  APRIL 22, 2013"
+set_global_assignment -name LAST_QUARTUS_VERSION 12.1
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 1
+set_global_assignment -name NOMINAL_CORE_SUPPLY_VOLTAGE 1.2V
+set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (VHDL)"
+set_global_assignment -name EDA_OUTPUT_DATA_FORMAT VHDL -section_id eda_simulation
+set_global_assignment -name SDC_FILE Android2FPGAMemoryMap.sdc
+set_global_assignment -name VERILOG_FILE qsys/src/misc.v
+set_global_assignment -name VERILOG_FILE qsys/src/ftdi_fifo_wr.v
+set_global_assignment -name VERILOG_FILE qsys/src/ftdi_fifo_rd.v
+set_global_assignment -name VERILOG_FILE qsys/src/ftdi_fifo_avalon_st_outstream.v
+set_global_assignment -name VERILOG_FILE qsys/src/ftdi_fifo_avalon_st_instream.v
+set_global_assignment -name VERILOG_FILE qsys/src/DE0_NANO.v
+set_global_assignment -name VERILOG_FILE qsys/src/Android2FPGAMemoryMap_FIFO.v
+set_global_assignment -name QSYS_FILE qsys/Android2FPGAMemoryMap.qsys
+set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "2.5 V"
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+
+
+#============================================================
+# CLOCK
+#============================================================
+set_location_assignment PIN_R8 -to iCLOCK_50
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to iCLOCK_50
+
+#============================================================
+# LED
+#============================================================
+set_location_assignment PIN_A15 -to oLED[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to oLED[0]
+set_location_assignment PIN_A13 -to oLED[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to oLED[1]
+set_location_assignment PIN_B13 -to oLED[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to oLED[2]
+set_location_assignment PIN_A11 -to oLED[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to oLED[3]
+set_location_assignment PIN_D1 -to oLED[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to oLED[4]
+set_location_assignment PIN_F3 -to oLED[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to oLED[5]
+set_location_assignment PIN_B1 -to oLED[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to oLED[6]
+set_location_assignment PIN_L3 -to oLED[7]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to oLED[7]
+
+#============================================================
+# KEY
+#============================================================
+set_location_assignment PIN_J15 -to iKEY[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to iKEY[0]
+set_location_assignment PIN_E1 -to iKEY[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to iKEY[1]
+
+#============================================================
+# SW
+#============================================================
+set_location_assignment PIN_M1 -to iSW[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to iSW[0]
+set_location_assignment PIN_T8 -to iSW[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to iSW[1]
+set_location_assignment PIN_B9 -to iSW[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to iSW[2]
+set_location_assignment PIN_M15 -to iSW[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to iSW[3]
+
+#============================================================
+# SDRAM
+#============================================================
+set_location_assignment PIN_M7 -to oDRAM_BA[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to oDRAM_BA[0]
+set_location_assignment PIN_M6 -to oDRAM_BA[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to oDRAM_BA[1]
+set_location_assignment PIN_R6 -to oDRAM_DQM[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to oDRAM_DQM[0]
+set_location_assignment PIN_T5 -to oDRAM_DQM[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to oDRAM_DQM[1]
+set_location_assignment PIN_L2 -to oDRAM_RAS_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to oDRAM_RAS_N
+set_location_assignment PIN_L1 -to oDRAM_CAS_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to oDRAM_CAS_N
+set_location_assignment PIN_L7 -to oDRAM_CKE
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to oDRAM_CKE
+set_location_assignment PIN_R4 -to oDRAM_CLK
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to oDRAM_CLK
+set_location_assignment PIN_C2 -to oDRAM_WE_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to oDRAM_WE_N
+set_location_assignment PIN_P6 -to oDRAM_CS_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to oDRAM_CS_N
+set_location_assignment PIN_G2 -to ioDRAM_DQ[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ioDRAM_DQ[0]
+set_location_assignment PIN_G1 -to ioDRAM_DQ[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ioDRAM_DQ[1]
+set_location_assignment PIN_L8 -to ioDRAM_DQ[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ioDRAM_DQ[2]
+set_location_assignment PIN_K5 -to ioDRAM_DQ[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ioDRAM_DQ[3]
+set_location_assignment PIN_K2 -to ioDRAM_DQ[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ioDRAM_DQ[4]
+set_location_assignment PIN_J2 -to ioDRAM_DQ[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ioDRAM_DQ[5]
+set_location_assignment PIN_J1 -to ioDRAM_DQ[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ioDRAM_DQ[6]
+set_location_assignment PIN_R7 -to ioDRAM_DQ[7]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ioDRAM_DQ[7]
+set_location_assignment PIN_T4 -to ioDRAM_DQ[8]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ioDRAM_DQ[8]
+set_location_assignment PIN_T2 -to ioDRAM_DQ[9]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ioDRAM_DQ[9]
+set_location_assignment PIN_T3 -to ioDRAM_DQ[10]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ioDRAM_DQ[10]
+set_location_assignment PIN_R3 -to ioDRAM_DQ[11]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ioDRAM_DQ[11]
+set_location_assignment PIN_R5 -to ioDRAM_DQ[12]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ioDRAM_DQ[12]
+set_location_assignment PIN_P3 -to ioDRAM_DQ[13]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ioDRAM_DQ[13]
+set_location_assignment PIN_N3 -to ioDRAM_DQ[14]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ioDRAM_DQ[14]
+set_location_assignment PIN_K1 -to ioDRAM_DQ[15]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ioDRAM_DQ[15]
+set_location_assignment PIN_P2 -to oDRAM_ADDR[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to oDRAM_ADDR[0]
+set_location_assignment PIN_N5 -to oDRAM_ADDR[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to oDRAM_ADDR[1]
+set_location_assignment PIN_N6 -to oDRAM_ADDR[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to oDRAM_ADDR[2]
+set_location_assignment PIN_M8 -to oDRAM_ADDR[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to oDRAM_ADDR[3]
+set_location_assignment PIN_P8 -to oDRAM_ADDR[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to oDRAM_ADDR[4]
+set_location_assignment PIN_T7 -to oDRAM_ADDR[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to oDRAM_ADDR[5]
+set_location_assignment PIN_N8 -to oDRAM_ADDR[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to oDRAM_ADDR[6]
+set_location_assignment PIN_T6 -to oDRAM_ADDR[7]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to oDRAM_ADDR[7]
+set_location_assignment PIN_R1 -to oDRAM_ADDR[8]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to oDRAM_ADDR[8]
+set_location_assignment PIN_P1 -to oDRAM_ADDR[9]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to oDRAM_ADDR[9]
+set_location_assignment PIN_N2 -to oDRAM_ADDR[10]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to oDRAM_ADDR[10]
+set_location_assignment PIN_N1 -to oDRAM_ADDR[11]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to oDRAM_ADDR[11]
+set_location_assignment PIN_L4 -to oDRAM_ADDR[12]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to oDRAM_ADDR[12]
+
+#============================================================
+# EPCS
+#============================================================
+#set_location_assignment PIN_H2 -to iEPCS_DATA0
+#set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to iEPCS_DATA0
+#set_location_assignment PIN_H1 -to oEPCS_DCLK
+#set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to oEPCS_DCLK
+#set_location_assignment PIN_D2 -to oEPCS_NCSO
+#set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to oEPCS_NCSO
+#set_location_assignment PIN_C1 -to oEPCS_ASDO
+#set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to oEPCS_ASDO
+
+#============================================================
+# Accelerometer and EEPROM
+#============================================================
+set_location_assignment PIN_F2 -to oI2C_SCLK
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to oI2C_SCLK
+set_location_assignment PIN_F1 -to ioI2C_SDAT
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ioI2C_SDAT
+set_location_assignment PIN_G5 -to oG_SENSOR_CS_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to oG_SENSOR_CS_N
+set_location_assignment PIN_M2 -to iG_SENSOR_INT
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to iG_SENSOR_INT
+
+#============================================================
+# ADC
+#============================================================
+set_location_assignment PIN_A10 -to oADC_CS_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to oADC_CS_N
+set_location_assignment PIN_B10 -to oADC_SADDR
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to oADC_SADDR
+set_location_assignment PIN_B14 -to oADC_SCLK
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to oADC_SCLK
+set_location_assignment PIN_A9 -to iADC_SDAT
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to iADC_SDAT
+
+#============================================================
+# FTDI FIFO
+#============================================================
+set_location_assignment PIN_D11 -to ioFIFO_DATA[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ioFIFO_DATA[0]
+set_location_assignment PIN_B5 -to ioFIFO_DATA[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ioFIFO_DATA[1]
+set_location_assignment PIN_B4 -to ioFIFO_DATA[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ioFIFO_DATA[2]
+set_location_assignment PIN_C6 -to ioFIFO_DATA[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ioFIFO_DATA[3]
+set_location_assignment PIN_A3 -to ioFIFO_DATA[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ioFIFO_DATA[4]
+set_location_assignment PIN_A6 -to ioFIFO_DATA[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ioFIFO_DATA[5]
+set_location_assignment PIN_D6 -to ioFIFO_DATA[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ioFIFO_DATA[6]
+set_location_assignment PIN_D5 -to ioFIFO_DATA[7]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ioFIFO_DATA[7]
+set_location_assignment PIN_D9 -to iFIFO_RXF_n
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to iFIFO_RXF_n
+set_location_assignment PIN_E9 -to iFIFO_TXE_n
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to iFIFO_TXE_n
+set_location_assignment PIN_D8 -to oFIFO_RD_n
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to oFIFO_RD_n
+set_location_assignment PIN_E6 -to oFIFO_WR_n
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to oFIFO_WR_n
+set_location_assignment PIN_F8 -to oFIFO_SIWU_n
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to oFIFO_SIWU_n
+
+set_global_assignment -name CDF_FILE programmer.cdf
+set_global_assignment -name ENABLE_SIGNALTAP ON
+set_global_assignment -name USE_SIGNALTAP_FILE output_files/stp1.stp
+set_global_assignment -name SIGNALTAP_FILE output_files/stp1.stp
+set_global_assignment -name SLD_NODE_CREATOR_ID 110 -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_ENTITY_NAME sld_signaltap -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_NODE_INFO=805334528" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_POWER_UP_TRIGGER=0" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_STORAGE_QUALIFIER_INVERSION_MASK_LENGTH=0" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_ATTRIBUTE_MEM_MODE=OFF" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_STATE_FLOW_USE_GENERATED=0" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_STATE_BITS=11" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_BUFFER_FULL_STOP=1" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_CURRENT_RESOURCE_WIDTH=1" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_TRIGGER_LEVEL=1" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_TRIGGER_IN_ENABLED=0" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_ADVANCED_TRIGGER_ENTITY=basic,1," -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_TRIGGER_LEVEL_PIPELINE=1" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_ENABLE_ADVANCED_TRIGGER=0" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_clk -to iCLOCK_50 -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_SEGMENT_SIZE=1024" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_SAMPLE_DEPTH=1024" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[0] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|Android2FPGAMemoryMap:u0|st_bytes_to_packets_in_bytes_stream_data[0]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[1] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|Android2FPGAMemoryMap:u0|st_bytes_to_packets_in_bytes_stream_data[1]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[2] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|Android2FPGAMemoryMap:u0|st_bytes_to_packets_in_bytes_stream_data[2]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[3] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|Android2FPGAMemoryMap:u0|st_bytes_to_packets_in_bytes_stream_data[3]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[4] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|Android2FPGAMemoryMap:u0|st_bytes_to_packets_in_bytes_stream_data[4]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[5] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|Android2FPGAMemoryMap:u0|st_bytes_to_packets_in_bytes_stream_data[5]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[6] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|Android2FPGAMemoryMap:u0|st_bytes_to_packets_in_bytes_stream_data[6]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[7] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|Android2FPGAMemoryMap:u0|st_bytes_to_packets_in_bytes_stream_data[7]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[8] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|Android2FPGAMemoryMap:u0|st_bytes_to_packets_in_bytes_stream_ready" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[9] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|Android2FPGAMemoryMap:u0|st_bytes_to_packets_in_bytes_stream_valid" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[10] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|Android2FPGAMemoryMap:u0|st_packets_to_bytes_out_bytes_stream_data[0]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[11] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|Android2FPGAMemoryMap:u0|st_packets_to_bytes_out_bytes_stream_data[1]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[12] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|Android2FPGAMemoryMap:u0|st_packets_to_bytes_out_bytes_stream_data[2]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[13] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|Android2FPGAMemoryMap:u0|st_packets_to_bytes_out_bytes_stream_data[3]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[14] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|Android2FPGAMemoryMap:u0|st_packets_to_bytes_out_bytes_stream_data[4]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[15] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|Android2FPGAMemoryMap:u0|st_packets_to_bytes_out_bytes_stream_data[5]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[16] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|Android2FPGAMemoryMap:u0|st_packets_to_bytes_out_bytes_stream_data[6]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[17] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|Android2FPGAMemoryMap:u0|st_packets_to_bytes_out_bytes_stream_data[7]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[18] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|Android2FPGAMemoryMap:u0|st_packets_to_bytes_out_bytes_stream_ready" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[19] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|Android2FPGAMemoryMap:u0|st_packets_to_bytes_out_bytes_stream_valid" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[20] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|ftdi_fifo_avalon_st_instream:ftdi_fifo_avalon_st_instream|iFIFO_DATA[0]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[21] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|ftdi_fifo_avalon_st_instream:ftdi_fifo_avalon_st_instream|iFIFO_DATA[1]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[22] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|ftdi_fifo_avalon_st_instream:ftdi_fifo_avalon_st_instream|iFIFO_DATA[2]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[23] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|ftdi_fifo_avalon_st_instream:ftdi_fifo_avalon_st_instream|iFIFO_DATA[3]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[24] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|ftdi_fifo_avalon_st_instream:ftdi_fifo_avalon_st_instream|iFIFO_DATA[4]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[25] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|ftdi_fifo_avalon_st_instream:ftdi_fifo_avalon_st_instream|iFIFO_DATA[5]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[26] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|ftdi_fifo_avalon_st_instream:ftdi_fifo_avalon_st_instream|iFIFO_DATA[6]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[27] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|ftdi_fifo_avalon_st_instream:ftdi_fifo_avalon_st_instream|iFIFO_DATA[7]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[28] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|ftdi_fifo_avalon_st_instream:ftdi_fifo_avalon_st_instream|iFIFO_RXF_n" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[29] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|ftdi_fifo_avalon_st_instream:ftdi_fifo_avalon_st_instream|iST_READY" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[30] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|ftdi_fifo_avalon_st_instream:ftdi_fifo_avalon_st_instream|oFIFO_RD_n" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[31] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|ftdi_fifo_avalon_st_instream:ftdi_fifo_avalon_st_instream|oST_DATA[0]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[32] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|ftdi_fifo_avalon_st_instream:ftdi_fifo_avalon_st_instream|oST_DATA[1]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[33] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|ftdi_fifo_avalon_st_instream:ftdi_fifo_avalon_st_instream|oST_DATA[2]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[34] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|ftdi_fifo_avalon_st_instream:ftdi_fifo_avalon_st_instream|oST_DATA[3]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[35] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|ftdi_fifo_avalon_st_instream:ftdi_fifo_avalon_st_instream|oST_DATA[4]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[36] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|ftdi_fifo_avalon_st_instream:ftdi_fifo_avalon_st_instream|oST_DATA[5]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[37] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|ftdi_fifo_avalon_st_instream:ftdi_fifo_avalon_st_instream|oST_DATA[6]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[38] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|ftdi_fifo_avalon_st_instream:ftdi_fifo_avalon_st_instream|oST_DATA[7]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[39] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|ftdi_fifo_avalon_st_instream:ftdi_fifo_avalon_st_instream|oST_VALID" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[40] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|ftdi_fifo_avalon_st_instream:ftdi_fifo_avalon_st_instream|state.ST_AVALON_ST_ASSERT_VALID" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[41] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|ftdi_fifo_avalon_st_instream:ftdi_fifo_avalon_st_instream|state.ST_AVALON_ST_WAIT_READY" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[42] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|ftdi_fifo_avalon_st_instream:ftdi_fifo_avalon_st_instream|state.ST_FIFO_READ_START" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[43] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|ftdi_fifo_avalon_st_instream:ftdi_fifo_avalon_st_instream|state.ST_FIFO_READ_WAIT_END" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[44] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|ftdi_fifo_avalon_st_instream:ftdi_fifo_avalon_st_instream|state.ST_IDLE" -section_id auto_signaltap_0
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[45] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|ftdi_fifo_avalon_st_outstream:ftdi_fifo_avalon_st_outstream|state.ST_AVALON_ST_ASSERT_READY" -section_id auto_signaltap_0
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[46] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|ftdi_fifo_avalon_st_outstream:ftdi_fifo_avalon_st_outstream|state.ST_WRITE_FIFO_START" -section_id auto_signaltap_0
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[47] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|ftdi_fifo_avalon_st_outstream:ftdi_fifo_avalon_st_outstream|state.ST_WRITE_FIFO_WAIT_END" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[0] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|Android2FPGAMemoryMap:u0|st_bytes_to_packets_in_bytes_stream_data[0]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[1] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|Android2FPGAMemoryMap:u0|st_bytes_to_packets_in_bytes_stream_data[1]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[2] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|Android2FPGAMemoryMap:u0|st_bytes_to_packets_in_bytes_stream_data[2]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[3] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|Android2FPGAMemoryMap:u0|st_bytes_to_packets_in_bytes_stream_data[3]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[4] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|Android2FPGAMemoryMap:u0|st_bytes_to_packets_in_bytes_stream_data[4]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[5] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|Android2FPGAMemoryMap:u0|st_bytes_to_packets_in_bytes_stream_data[5]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[6] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|Android2FPGAMemoryMap:u0|st_bytes_to_packets_in_bytes_stream_data[6]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[7] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|Android2FPGAMemoryMap:u0|st_bytes_to_packets_in_bytes_stream_data[7]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[8] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|Android2FPGAMemoryMap:u0|st_bytes_to_packets_in_bytes_stream_ready" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[9] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|Android2FPGAMemoryMap:u0|st_bytes_to_packets_in_bytes_stream_valid" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[10] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|Android2FPGAMemoryMap:u0|st_packets_to_bytes_out_bytes_stream_data[0]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[11] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|Android2FPGAMemoryMap:u0|st_packets_to_bytes_out_bytes_stream_data[1]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[12] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|Android2FPGAMemoryMap:u0|st_packets_to_bytes_out_bytes_stream_data[2]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[13] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|Android2FPGAMemoryMap:u0|st_packets_to_bytes_out_bytes_stream_data[3]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[14] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|Android2FPGAMemoryMap:u0|st_packets_to_bytes_out_bytes_stream_data[4]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[15] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|Android2FPGAMemoryMap:u0|st_packets_to_bytes_out_bytes_stream_data[5]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[16] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|Android2FPGAMemoryMap:u0|st_packets_to_bytes_out_bytes_stream_data[6]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[17] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|Android2FPGAMemoryMap:u0|st_packets_to_bytes_out_bytes_stream_data[7]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[18] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|Android2FPGAMemoryMap:u0|st_packets_to_bytes_out_bytes_stream_ready" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[19] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|Android2FPGAMemoryMap:u0|st_packets_to_bytes_out_bytes_stream_valid" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[20] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|ftdi_fifo_avalon_st_instream:ftdi_fifo_avalon_st_instream|iFIFO_DATA[0]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[21] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|ftdi_fifo_avalon_st_instream:ftdi_fifo_avalon_st_instream|iFIFO_DATA[1]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[22] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|ftdi_fifo_avalon_st_instream:ftdi_fifo_avalon_st_instream|iFIFO_DATA[2]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[23] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|ftdi_fifo_avalon_st_instream:ftdi_fifo_avalon_st_instream|iFIFO_DATA[3]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[24] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|ftdi_fifo_avalon_st_instream:ftdi_fifo_avalon_st_instream|iFIFO_DATA[4]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[25] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|ftdi_fifo_avalon_st_instream:ftdi_fifo_avalon_st_instream|iFIFO_DATA[5]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[26] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|ftdi_fifo_avalon_st_instream:ftdi_fifo_avalon_st_instream|iFIFO_DATA[6]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[27] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|ftdi_fifo_avalon_st_instream:ftdi_fifo_avalon_st_instream|iFIFO_DATA[7]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[28] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|ftdi_fifo_avalon_st_instream:ftdi_fifo_avalon_st_instream|iFIFO_RXF_n" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[29] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|ftdi_fifo_avalon_st_instream:ftdi_fifo_avalon_st_instream|iST_READY" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[30] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|ftdi_fifo_avalon_st_instream:ftdi_fifo_avalon_st_instream|oFIFO_RD_n" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[31] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|ftdi_fifo_avalon_st_instream:ftdi_fifo_avalon_st_instream|oST_DATA[0]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[32] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|ftdi_fifo_avalon_st_instream:ftdi_fifo_avalon_st_instream|oST_DATA[1]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[33] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|ftdi_fifo_avalon_st_instream:ftdi_fifo_avalon_st_instream|oST_DATA[2]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[34] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|ftdi_fifo_avalon_st_instream:ftdi_fifo_avalon_st_instream|oST_DATA[3]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[35] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|ftdi_fifo_avalon_st_instream:ftdi_fifo_avalon_st_instream|oST_DATA[4]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[36] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|ftdi_fifo_avalon_st_instream:ftdi_fifo_avalon_st_instream|oST_DATA[5]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[37] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|ftdi_fifo_avalon_st_instream:ftdi_fifo_avalon_st_instream|oST_DATA[6]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[38] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|ftdi_fifo_avalon_st_instream:ftdi_fifo_avalon_st_instream|oST_DATA[7]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[39] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|ftdi_fifo_avalon_st_instream:ftdi_fifo_avalon_st_instream|oST_VALID" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[40] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|ftdi_fifo_avalon_st_instream:ftdi_fifo_avalon_st_instream|state.ST_AVALON_ST_ASSERT_VALID" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[41] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|ftdi_fifo_avalon_st_instream:ftdi_fifo_avalon_st_instream|state.ST_AVALON_ST_WAIT_READY" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[42] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|ftdi_fifo_avalon_st_instream:ftdi_fifo_avalon_st_instream|state.ST_FIFO_READ_START" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[43] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|ftdi_fifo_avalon_st_instream:ftdi_fifo_avalon_st_instream|state.ST_FIFO_READ_WAIT_END" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[44] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|ftdi_fifo_avalon_st_instream:ftdi_fifo_avalon_st_instream|state.ST_IDLE" -section_id auto_signaltap_0
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[45] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|ftdi_fifo_avalon_st_outstream:ftdi_fifo_avalon_st_outstream|state.ST_AVALON_ST_ASSERT_READY" -section_id auto_signaltap_0
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[46] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|ftdi_fifo_avalon_st_outstream:ftdi_fifo_avalon_st_outstream|state.ST_WRITE_FIFO_START" -section_id auto_signaltap_0
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[47] -to "Android2FPGAMemoryMap_FIFO:Android2FPGAMemoryMap_FIFO|ftdi_fifo_avalon_st_outstream:ftdi_fifo_avalon_st_outstream|state.ST_WRITE_FIFO_WAIT_END" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_DATA_BITS=48" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_TRIGGER_BITS=48" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_INVERSION_MASK=000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_INVERSION_MASK_LENGTH=168" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_NODE_CRC_LOWORD=57721" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_NODE_CRC_HIWORD=61167" -section_id auto_signaltap_0
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

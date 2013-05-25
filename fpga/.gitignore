@@ -1,0 +1,15 @@
+#QuartusII files
+*.pin
+*.rpt
+*.summary
+*.done
+*.smsg
+*.jdi
+
+#directories
+db/
+incremental_db/
+
+doc/
+
+

@@ -1,0 +1,124 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 1991-2012 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+*/
+(header "symbol" (version "1.1"))
+(symbol
+	(rect 0 0 608 256)
+	(text "Android2FPGAMemoryMap" (rect 223 -1 339 11)(font "Arial" (font_size 10)))
+	(text "inst" (rect 8 240 20 252)(font "Arial" ))
+	(port
+		(pt 0 72)
+		(input)
+		(text "clk_clk" (rect 0 0 27 12)(font "Arial" (font_size 8)))
+		(text "clk_clk" (rect 4 61 46 72)(font "Arial" (font_size 8)))
+		(line (pt 0 72)(pt 256 72)(line_width 1))
+	)
+	(port
+		(pt 0 112)
+		(input)
+		(text "reset_reset_n" (rect 0 0 56 12)(font "Arial" (font_size 8)))
+		(text "reset_reset_n" (rect 4 101 82 112)(font "Arial" (font_size 8)))
+		(line (pt 0 112)(pt 256 112)(line_width 1))
+	)
+	(port
+		(pt 0 168)
+		(input)
+		(text "st_bytes_to_packets_in_bytes_stream_valid" (rect 0 0 182 12)(font "Arial" (font_size 8)))
+		(text "st_bytes_to_packets_in_bytes_stream_valid" (rect 4 157 250 168)(font "Arial" (font_size 8)))
+		(line (pt 0 168)(pt 256 168)(line_width 1))
+	)
+	(port
+		(pt 0 184)
+		(input)
+		(text "st_bytes_to_packets_in_bytes_stream_data[7..0]" (rect 0 0 201 12)(font "Arial" (font_size 8)))
+		(text "st_bytes_to_packets_in_bytes_stream_data[7..0]" (rect 4 173 280 184)(font "Arial" (font_size 8)))
+		(line (pt 0 184)(pt 256 184)(line_width 3))
+	)
+	(port
+		(pt 608 72)
+		(input)
+		(text "st_packets_to_bytes_out_bytes_stream_ready" (rect 0 0 194 12)(font "Arial" (font_size 8)))
+		(text "st_packets_to_bytes_out_bytes_stream_ready" (rect 371 61 623 72)(font "Arial" (font_size 8)))
+		(line (pt 608 72)(pt 336 72)(line_width 1))
+	)
+	(port
+		(pt 0 152)
+		(output)
+		(text "st_bytes_to_packets_in_bytes_stream_ready" (rect 0 0 188 12)(font "Arial" (font_size 8)))
+		(text "st_bytes_to_packets_in_bytes_stream_ready" (rect 4 141 250 152)(font "Arial" (font_size 8)))
+		(line (pt 0 152)(pt 256 152)(line_width 1))
+	)
+	(port
+		(pt 608 88)
+		(output)
+		(text "st_packets_to_bytes_out_bytes_stream_valid" (rect 0 0 188 12)(font "Arial" (font_size 8)))
+		(text "st_packets_to_bytes_out_bytes_stream_valid" (rect 377 77 629 88)(font "Arial" (font_size 8)))
+		(line (pt 608 88)(pt 336 88)(line_width 1))
+	)
+	(port
+		(pt 608 104)
+		(output)
+		(text "st_packets_to_bytes_out_bytes_stream_data[7..0]" (rect 0 0 207 12)(font "Arial" (font_size 8)))
+		(text "st_packets_to_bytes_out_bytes_stream_data[7..0]" (rect 354 93 636 104)(font "Arial" (font_size 8)))
+		(line (pt 608 104)(pt 336 104)(line_width 3))
+	)
+	(port
+		(pt 0 224)
+		(output)
+		(text "pio_export[7..0]" (rect 0 0 61 12)(font "Arial" (font_size 8)))
+		(text "pio_export[7..0]" (rect 4 213 100 224)(font "Arial" (font_size 8)))
+		(line (pt 0 224)(pt 256 224)(line_width 3))
+	)
+	(drawing
+		(text "clk" (rect 241 43 500 99)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "clk" (rect 261 67 540 144)(font "Arial" (color 0 0 0)))
+		(text "reset" (rect 227 83 484 179)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "reset_n" (rect 261 107 564 224)(font "Arial" (color 0 0 0)))
+		(text "st_bytes_to_packets_in_bytes_stream" (rect 29 123 268 259)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "ready" (rect 261 147 552 304)(font "Arial" (color 0 0 0)))
+		(text "valid" (rect 261 163 552 336)(font "Arial" (color 0 0 0)))
+		(text "data" (rect 261 179 546 368)(font "Arial" (color 0 0 0)))
+		(text "st_packets_to_bytes_out_bytes_stream" (rect 337 43 890 99)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "ready" (rect 308 67 646 144)(font "Arial" (color 0 0 0)))
+		(text "valid" (rect 313 83 656 176)(font "Arial" (color 0 0 0)))
+		(text "data" (rect 315 99 654 208)(font "Arial" (color 0 0 0)))
+		(text "pio" (rect 240 195 498 403)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "export" (rect 261 219 558 448)(font "Arial" (color 0 0 0)))
+		(text " Android2FPGAMemoryMap " (rect 485 240 1108 490)(font "Arial" ))
+		(line (pt 257 52)(pt 257 76)(line_width 1))
+		(line (pt 258 52)(pt 258 76)(line_width 1))
+		(line (pt 257 92)(pt 257 116)(line_width 1))
+		(line (pt 258 92)(pt 258 116)(line_width 1))
+		(line (pt 257 132)(pt 257 188)(line_width 1))
+		(line (pt 258 132)(pt 258 188)(line_width 1))
+		(line (pt 335 52)(pt 335 108)(line_width 1))
+		(line (pt 334 52)(pt 334 108)(line_width 1))
+		(line (pt 257 204)(pt 257 228)(line_width 1))
+		(line (pt 258 204)(pt 258 228)(line_width 1))
+		(line (pt 256 32)(pt 336 32)(line_width 1))
+		(line (pt 336 32)(pt 336 240)(line_width 1))
+		(line (pt 256 240)(pt 336 240)(line_width 1))
+		(line (pt 256 32)(pt 256 240)(line_width 1))
+		(line (pt 0 0)(pt 608 0)(line_width 1))
+		(line (pt 608 0)(pt 608 256)(line_width 1))
+		(line (pt 0 256)(pt 608 256)(line_width 1))
+		(line (pt 0 0)(pt 0 256)(line_width 1))
+	)
+)

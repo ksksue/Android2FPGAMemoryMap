@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system name="$${FILENAME}">
+ <component
+   name="$${FILENAME}"
+   displayName="$${FILENAME}"
+   version="1.0"
+   description=""
+   tags=""
+   categories="" />
+ <parameter name="bonusData"><![CDATA[bonusData 
+{
+   element clk
+   {
+      datum _sortIndex
+      {
+         value = "0";
+         type = "int";
+      }
+   }
+   element packets_to_master
+   {
+      datum _sortIndex
+      {
+         value = "1";
+         type = "int";
+      }
+   }
+   element pio
+   {
+      datum _sortIndex
+      {
+         value = "6";
+         type = "int";
+      }
+   }
+   element pio.s1
+   {
+      datum baseAddress
+      {
+         value = "0";
+         type = "String";
+      }
+   }
+   element st_bytes_to_packets
+   {
+      datum _sortIndex
+      {
+         value = "2";
+         type = "int";
+      }
+   }
+   element st_bytes_to_packets_ca
+   {
+      datum _sortIndex
+      {
+         value = "3";
+         type = "int";
+      }
+   }
+   element st_packets_to_bytes
+   {
+      datum _sortIndex
+      {
+         value = "5";
+         type = "int";
+      }
+   }
+   element st_packets_to_bytes_ca
+   {
+      datum _sortIndex
+      {
+         value = "4";
+         type = "int";
+      }
+   }
+}
+]]></parameter>
+ <parameter name="clockCrossingAdapter" value="HANDSHAKE" />
+ <parameter name="device" value="EP4CE22F17C6" />
+ <parameter name="deviceFamily" value="Cyclone IV E" />
+ <parameter name="deviceSpeedGrade" value="6" />
+ <parameter name="fabricMode" value="QSYS" />
+ <parameter name="generateLegacySim" value="false" />
+ <parameter name="generationId" value="0" />
+ <parameter name="globalResetBus" value="false" />
+ <parameter name="hdlLanguage" value="VERILOG" />
+ <parameter name="maxAdditionalLatency" value="1" />
+ <parameter name="projectName" value="" />
+ <parameter name="sopcBorderPoints" value="false" />
+ <parameter name="systemHash" value="1" />
+ <parameter name="timeStamp" value="1366563996937" />
+ <parameter name="useTestBenchNamingPattern" value="false" />
+ <instanceScript></instanceScript>
+ <interface name="clk" internal="clk.clk_in" type="clock" dir="end" />
+ <interface name="reset" internal="clk.clk_in_reset" type="reset" dir="end" />
+ <interface
+   name="st_bytes_to_packets_in_bytes_stream"
+   internal="st_bytes_to_packets.in_bytes_stream"
+   type="avalon_streaming"
+   dir="end" />
+ <interface
+   name="st_packets_to_bytes_out_bytes_stream"
+   internal="st_packets_to_bytes.out_bytes_stream"
+   type="avalon_streaming"
+   dir="start" />
+ <interface
+   name="pio"
+   internal="pio.external_connection"
+   type="conduit"
+   dir="end" />
+ <module kind="clock_source" version="12.1" enabled="1" name="clk">
+  <parameter name="clockFrequency" value="50000000" />
+  <parameter name="clockFrequencyKnown" value="true" />
+  <parameter name="inputClockFrequency" value="0" />
+  <parameter name="resetSynchronousEdges" value="NONE" />
+ </module>
+ <module
+   kind="altera_avalon_packets_to_master"
+   version="12.1"
+   enabled="1"
+   name="packets_to_master">
+  <parameter name="EXPORT_MASTER_SIGNALS" value="0" />
+  <parameter name="FAST_VER" value="0" />
+  <parameter name="FIFO_DEPTHS" value="2" />
+  <parameter name="AUTO_DEVICE_FAMILY" value="Cyclone IV E" />
+ </module>
+ <module
+   kind="altera_avalon_st_bytes_to_packets"
+   version="11.1"
+   enabled="1"
+   name="st_bytes_to_packets">
+  <parameter name="CHANNEL_WIDTH" value="8" />
+  <parameter name="ENCODING" value="0" />
+  <parameter name="AUTO_CLK_CLOCK_RATE" value="50000000" />
+  <parameter name="AUTO_DEVICE_FAMILY" value="Cyclone IV E" />
+ </module>
+ <module
+   kind="altera_avalon_st_packets_to_bytes"
+   version="11.1"
+   enabled="1"
+   name="st_packets_to_bytes">
+  <parameter name="CHANNEL_WIDTH" value="8" />
+  <parameter name="ENCODING" value="0" />
+  <parameter name="AUTO_CLK_CLOCK_RATE" value="50000000" />
+  <parameter name="AUTO_DEVICE_FAMILY" value="Cyclone IV E" />
+ </module>
+ <module kind="altera_avalon_pio" version="12.1" enabled="1" name="pio">
+  <parameter name="bitClearingEdgeCapReg" value="false" />
+  <parameter name="bitModifyingOutReg" value="false" />
+  <parameter name="captureEdge" value="false" />
+  <parameter name="clockRate" value="50000000" />
+  <parameter name="direction" value="Output" />
+  <parameter name="edgeType" value="RISING" />
+  <parameter name="generateIRQ" value="false" />
+  <parameter name="irqType" value="LEVEL" />
+  <parameter name="resetValue" value="0" />
+  <parameter name="simDoTestBenchWiring" value="false" />
+  <parameter name="simDrivenValue" value="0" />
+  <parameter name="width" value="8" />
+ </module>
+ <module
+   kind="channel_adapter"
+   version="12.1"
+   enabled="1"
+   name="st_packets_to_bytes_ca">
+  <parameter name="generationLanguage" value="VERILOG" />
+  <parameter name="inBitsPerSymbol" value="8" />
+  <parameter name="inChannelWidth" value="0" />
+  <parameter name="inErrorDescriptor" value="" />
+  <parameter name="inErrorWidth" value="0" />
+  <parameter name="inMaxChannel" value="0" />
+  <parameter name="inReadyLatency" value="0" />
+  <parameter name="inSymbolsPerBeat" value="1" />
+  <parameter name="inUseEmpty" value="false" />
+  <parameter name="inUseEmptyPort" value="NO" />
+  <parameter name="inUsePackets" value="true" />
+  <parameter name="inUseReady" value="true" />
+  <parameter name="moduleName" value="" />
+  <parameter name="outChannelWidth" value="8" />
+  <parameter name="outMaxChannel" value="255" />
+ </module>
+ <module
+   kind="channel_adapter"
+   version="12.1"
+   enabled="1"
+   name="st_bytes_to_packets_ca">
+  <parameter name="generationLanguage" value="VERILOG" />
+  <parameter name="inBitsPerSymbol" value="8" />
+  <parameter name="inChannelWidth" value="8" />
+  <parameter name="inErrorDescriptor" value="" />
+  <parameter name="inErrorWidth" value="0" />
+  <parameter name="inMaxChannel" value="255" />
+  <parameter name="inReadyLatency" value="0" />
+  <parameter name="inSymbolsPerBeat" value="1" />
+  <parameter name="inUseEmpty" value="false" />
+  <parameter name="inUseEmptyPort" value="NO" />
+  <parameter name="inUsePackets" value="true" />
+  <parameter name="inUseReady" value="true" />
+  <parameter name="moduleName" value="" />
+  <parameter name="outChannelWidth" value="0" />
+  <parameter name="outMaxChannel" value="0" />
+ </module>
+ <connection
+   kind="clock"
+   version="12.1"
+   start="clk.clk"
+   end="packets_to_master.clk" />
+ <connection
+   kind="clock"
+   version="12.1"
+   start="clk.clk"
+   end="st_bytes_to_packets.clk" />
+ <connection
+   kind="clock"
+   version="12.1"
+   start="clk.clk"
+   end="st_packets_to_bytes.clk" />
+ <connection kind="clock" version="12.1" start="clk.clk" end="pio.clk" />
+ <connection
+   kind="reset"
+   version="12.1"
+   start="clk.clk_reset"
+   end="packets_to_master.clk_reset" />
+ <connection
+   kind="reset"
+   version="12.1"
+   start="clk.clk_reset"
+   end="st_bytes_to_packets.clk_reset" />
+ <connection
+   kind="reset"
+   version="12.1"
+   start="clk.clk_reset"
+   end="st_packets_to_bytes.clk_reset" />
+ <connection kind="reset" version="12.1" start="clk.clk_reset" end="pio.reset" />
+ <connection
+   kind="avalon"
+   version="12.1"
+   start="packets_to_master.avalon_master"
+   end="pio.s1">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x0000" />
+ </connection>
+ <connection
+   kind="avalon_streaming"
+   version="12.1"
+   start="packets_to_master.out_stream"
+   end="st_packets_to_bytes_ca.in" />
+ <connection
+   kind="avalon_streaming"
+   version="12.1"
+   start="st_packets_to_bytes_ca.out"
+   end="st_packets_to_bytes.in_packets_stream" />
+ <connection
+   kind="clock"
+   version="12.1"
+   start="clk.clk"
+   end="st_packets_to_bytes_ca.clk" />
+ <connection
+   kind="reset"
+   version="12.1"
+   start="clk.clk_reset"
+   end="st_packets_to_bytes_ca.reset" />
+ <connection
+   kind="avalon_streaming"
+   version="12.1"
+   start="st_bytes_to_packets.out_packets_stream"
+   end="st_bytes_to_packets_ca.in" />
+ <connection
+   kind="avalon_streaming"
+   version="12.1"
+   start="st_bytes_to_packets_ca.out"
+   end="packets_to_master.in_stream" />
+ <connection
+   kind="clock"
+   version="12.1"
+   start="clk.clk"
+   end="st_bytes_to_packets_ca.clk" />
+ <connection
+   kind="reset"
+   version="12.1"
+   start="clk.clk_reset"
+   end="st_bytes_to_packets_ca.reset" />
+</system>

@@ -1,0 +1,14 @@
+	component Android2FPGAMemoryMap is
+		port (
+			clk_clk                                    : in  std_logic                    := 'X';             -- clk
+			reset_reset_n                              : in  std_logic                    := 'X';             -- reset_n
+			st_bytes_to_packets_in_bytes_stream_ready  : out std_logic;                                       -- ready
+			st_bytes_to_packets_in_bytes_stream_valid  : in  std_logic                    := 'X';             -- valid
+			st_bytes_to_packets_in_bytes_stream_data   : in  std_logic_vector(7 downto 0) := (others => 'X'); -- data
+			st_packets_to_bytes_out_bytes_stream_ready : in  std_logic                    := 'X';             -- ready
+			st_packets_to_bytes_out_bytes_stream_valid : out std_logic;                                       -- valid
+			st_packets_to_bytes_out_bytes_stream_data  : out std_logic_vector(7 downto 0);                    -- data
+			pio_export                                 : out std_logic_vector(7 downto 0)                     -- export
+		);
+	end component Android2FPGAMemoryMap;
+

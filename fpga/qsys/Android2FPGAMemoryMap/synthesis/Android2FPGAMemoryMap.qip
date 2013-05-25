@@ -1,0 +1,49 @@
+set_global_assignment -entity "Android2FPGAMemoryMap" -library "Android2FPGAMemoryMap" -name IP_TOOL_NAME "qsys"
+set_global_assignment -entity "Android2FPGAMemoryMap" -library "Android2FPGAMemoryMap" -name IP_TOOL_VERSION "12.1"
+set_global_assignment -entity "Android2FPGAMemoryMap" -library "Android2FPGAMemoryMap" -name IP_TOOL_ENV "qsys"
+set_global_assignment -library "Android2FPGAMemoryMap" -name SOPCINFO_FILE [file join $::quartus(qip_path) "../../Android2FPGAMemoryMap.sopcinfo"]
+set_instance_assignment -entity "Android2FPGAMemoryMap" -library "Android2FPGAMemoryMap" -name SLD_INFO "QSYS_NAME Android2FPGAMemoryMap HAS_SOPCINFO 1 GENERATION_ID 1366565377"
+set_global_assignment -library "Android2FPGAMemoryMap" -name MISC_FILE [file join $::quartus(qip_path) "../../Android2FPGAMemoryMap.cmp"]
+set_global_assignment -name SYNTHESIS_ONLY_QIP ON
+set_global_assignment -library "Android2FPGAMemoryMap" -name MISC_FILE [file join $::quartus(qip_path) "../../Android2FPGAMemoryMap.qsys"]
+
+set_global_assignment -library "Android2FPGAMemoryMap" -name VERILOG_FILE [file join $::quartus(qip_path) "Android2FPGAMemoryMap.v"]
+set_global_assignment -library "Android2FPGAMemoryMap" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/altera_reset_controller.v"]
+set_global_assignment -library "Android2FPGAMemoryMap" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/altera_reset_synchronizer.v"]
+set_global_assignment -library "Android2FPGAMemoryMap" -name SDC_FILE [file join $::quartus(qip_path) "submodules/altera_reset_controller.sdc"]
+set_global_assignment -library "Android2FPGAMemoryMap" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "submodules/altera_merlin_slave_translator.sv"]
+set_global_assignment -library "Android2FPGAMemoryMap" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "submodules/altera_merlin_master_translator.sv"]
+set_global_assignment -library "Android2FPGAMemoryMap" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/Android2FPGAMemoryMap_st_bytes_to_packets_ca.v"]
+set_global_assignment -library "Android2FPGAMemoryMap" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/Android2FPGAMemoryMap_st_packets_to_bytes_ca.v"]
+set_global_assignment -library "Android2FPGAMemoryMap" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/Android2FPGAMemoryMap_pio.v"]
+set_global_assignment -library "Android2FPGAMemoryMap" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/altera_avalon_st_packets_to_bytes.v"]
+set_global_assignment -library "Android2FPGAMemoryMap" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/altera_avalon_st_bytes_to_packets.v"]
+set_global_assignment -library "Android2FPGAMemoryMap" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/altera_avalon_packets_to_master.v"]
+
+set_global_assignment -entity "altera_reset_controller" -library "Android2FPGAMemoryMap" -name IP_TOOL_NAME "altera_reset_controller"
+set_global_assignment -entity "altera_reset_controller" -library "Android2FPGAMemoryMap" -name IP_TOOL_VERSION "12.1"
+set_global_assignment -entity "altera_reset_controller" -library "Android2FPGAMemoryMap" -name IP_TOOL_ENV "qsys"
+set_global_assignment -entity "altera_merlin_slave_translator" -library "Android2FPGAMemoryMap" -name IP_TOOL_NAME "altera_merlin_slave_translator"
+set_global_assignment -entity "altera_merlin_slave_translator" -library "Android2FPGAMemoryMap" -name IP_TOOL_VERSION "12.1"
+set_global_assignment -entity "altera_merlin_slave_translator" -library "Android2FPGAMemoryMap" -name IP_TOOL_ENV "qsys"
+set_global_assignment -entity "altera_merlin_master_translator" -library "Android2FPGAMemoryMap" -name IP_TOOL_NAME "altera_merlin_master_translator"
+set_global_assignment -entity "altera_merlin_master_translator" -library "Android2FPGAMemoryMap" -name IP_TOOL_VERSION "12.1"
+set_global_assignment -entity "altera_merlin_master_translator" -library "Android2FPGAMemoryMap" -name IP_TOOL_ENV "qsys"
+set_global_assignment -entity "Android2FPGAMemoryMap_st_bytes_to_packets_ca" -library "Android2FPGAMemoryMap" -name IP_TOOL_NAME "channel_adapter"
+set_global_assignment -entity "Android2FPGAMemoryMap_st_bytes_to_packets_ca" -library "Android2FPGAMemoryMap" -name IP_TOOL_VERSION "12.1"
+set_global_assignment -entity "Android2FPGAMemoryMap_st_bytes_to_packets_ca" -library "Android2FPGAMemoryMap" -name IP_TOOL_ENV "qsys"
+set_global_assignment -entity "Android2FPGAMemoryMap_st_packets_to_bytes_ca" -library "Android2FPGAMemoryMap" -name IP_TOOL_NAME "channel_adapter"
+set_global_assignment -entity "Android2FPGAMemoryMap_st_packets_to_bytes_ca" -library "Android2FPGAMemoryMap" -name IP_TOOL_VERSION "12.1"
+set_global_assignment -entity "Android2FPGAMemoryMap_st_packets_to_bytes_ca" -library "Android2FPGAMemoryMap" -name IP_TOOL_ENV "qsys"
+set_global_assignment -entity "Android2FPGAMemoryMap_pio" -library "Android2FPGAMemoryMap" -name IP_TOOL_NAME "altera_avalon_pio"
+set_global_assignment -entity "Android2FPGAMemoryMap_pio" -library "Android2FPGAMemoryMap" -name IP_TOOL_VERSION "12.1"
+set_global_assignment -entity "Android2FPGAMemoryMap_pio" -library "Android2FPGAMemoryMap" -name IP_TOOL_ENV "qsys"
+set_global_assignment -entity "altera_avalon_st_packets_to_bytes" -library "Android2FPGAMemoryMap" -name IP_TOOL_NAME "altera_avalon_st_packets_to_bytes"
+set_global_assignment -entity "altera_avalon_st_packets_to_bytes" -library "Android2FPGAMemoryMap" -name IP_TOOL_VERSION "11.1"
+set_global_assignment -entity "altera_avalon_st_packets_to_bytes" -library "Android2FPGAMemoryMap" -name IP_TOOL_ENV "qsys"
+set_global_assignment -entity "altera_avalon_st_bytes_to_packets" -library "Android2FPGAMemoryMap" -name IP_TOOL_NAME "altera_avalon_st_bytes_to_packets"
+set_global_assignment -entity "altera_avalon_st_bytes_to_packets" -library "Android2FPGAMemoryMap" -name IP_TOOL_VERSION "11.1"
+set_global_assignment -entity "altera_avalon_st_bytes_to_packets" -library "Android2FPGAMemoryMap" -name IP_TOOL_ENV "qsys"
+set_global_assignment -entity "altera_avalon_packets_to_master" -library "Android2FPGAMemoryMap" -name IP_TOOL_NAME "altera_avalon_packets_to_master"
+set_global_assignment -entity "altera_avalon_packets_to_master" -library "Android2FPGAMemoryMap" -name IP_TOOL_VERSION "12.1"
+set_global_assignment -entity "altera_avalon_packets_to_master" -library "Android2FPGAMemoryMap" -name IP_TOOL_ENV "qsys"
