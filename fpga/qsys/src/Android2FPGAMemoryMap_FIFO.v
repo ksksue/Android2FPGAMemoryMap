@@ -26,6 +26,7 @@ module Android2FPGAMemoryMap_FIFO (
     output          oSIWU_n,        // Send Immidiate / Wake Up signal
 
     output  [7:0]   oPIO,           // Output PIO
+    output  [7:0]   o7SEG_PIO,      // Output PIO
 
     // Connect to System Signals
     input   clk,                    // System Clock 50MHz(20ns)
@@ -61,6 +62,7 @@ wire [7:0]  fifo_wr_data;       // Data to FIFO
 wire        fifo_oe_n;          // Output Enable for Bi-direction Bus
 
 wire [7:0]  pio;
+wire [7:0]  seg;
 
 //////////////////////////////////////////////////////////////////////////////
 // RTL instance
@@ -75,7 +77,8 @@ Android2FPGAMemoryMap u0 (
     .st_packets_to_bytes_out_bytes_stream_ready (st_out_stream_ready),  // st_packets_to_bytes_out_bytes_stream.ready
     .st_packets_to_bytes_out_bytes_stream_valid (st_out_stream_valid),  //                                     .valid
     .st_packets_to_bytes_out_bytes_stream_data  (st_out_stream_data),   //                                     .data
-    .pio_export                                 (pio)                   //                                  pio.export
+    .pio_export                                 (pio),                  //                                  pio.export
+    .seg_export                                 (seg)
 );
 
 ftdi_fifo_avalon_st_instream ftdi_fifo_avalon_st_instream(
@@ -126,5 +129,6 @@ assign oFIFO_OE_n   = fifo_oe_n;
 assign oSIWU_n      = 1'b0;
 
 assign oPIO         = pio;
+assign o7SEG_PIO    = seg;
 
 endmodule

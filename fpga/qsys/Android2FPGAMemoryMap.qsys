@@ -6,9 +6,20 @@
    version="1.0"
    description=""
    tags=""
-   categories="" />
+   categories="System" />
  <parameter name="bonusData"><![CDATA[bonusData 
 {
+   element $${FILENAME}
+   {
+   }
+   element 7seg_led
+   {
+      datum _sortIndex
+      {
+         value = "7";
+         type = "int";
+      }
+   }
    element clk
    {
       datum _sortIndex
@@ -33,11 +44,19 @@
          type = "int";
       }
    }
-   element pio.s1
+   element 7seg_led.s1
    {
       datum baseAddress
       {
          value = "0";
+         type = "String";
+      }
+   }
+   element pio.s1
+   {
+      datum baseAddress
+      {
+         value = "16";
          type = "String";
       }
    }
@@ -88,7 +107,7 @@
  <parameter name="projectName" value="" />
  <parameter name="sopcBorderPoints" value="false" />
  <parameter name="systemHash" value="1" />
- <parameter name="timeStamp" value="1366563996937" />
+ <parameter name="timeStamp" value="1370415789901" />
  <parameter name="useTestBenchNamingPattern" value="false" />
  <instanceScript></instanceScript>
  <interface name="clk" internal="clk.clk_in" type="clock" dir="end" />
@@ -106,6 +125,11 @@
  <interface
    name="pio"
    internal="pio.external_connection"
+   type="conduit"
+   dir="end" />
+ <interface
+   name="seg"
+   internal="7seg_led.external_connection"
    type="conduit"
    dir="end" />
  <module kind="clock_source" version="12.1" enabled="1" name="clk">
@@ -200,6 +224,20 @@
   <parameter name="outChannelWidth" value="0" />
   <parameter name="outMaxChannel" value="0" />
  </module>
+ <module kind="altera_avalon_pio" version="12.1" enabled="1" name="7seg_led">
+  <parameter name="bitClearingEdgeCapReg" value="false" />
+  <parameter name="bitModifyingOutReg" value="false" />
+  <parameter name="captureEdge" value="false" />
+  <parameter name="clockRate" value="50000000" />
+  <parameter name="direction" value="Output" />
+  <parameter name="edgeType" value="RISING" />
+  <parameter name="generateIRQ" value="false" />
+  <parameter name="irqType" value="LEVEL" />
+  <parameter name="resetValue" value="0" />
+  <parameter name="simDoTestBenchWiring" value="false" />
+  <parameter name="simDrivenValue" value="0" />
+  <parameter name="width" value="8" />
+ </module>
  <connection
    kind="clock"
    version="12.1"
@@ -238,7 +276,7 @@
    start="packets_to_master.avalon_master"
    end="pio.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x0000" />
+  <parameter name="baseAddress" value="0x0010" />
  </connection>
  <connection
    kind="avalon_streaming"
@@ -280,4 +318,18 @@
    version="12.1"
    start="clk.clk_reset"
    end="st_bytes_to_packets_ca.reset" />
+ <connection kind="clock" version="12.1" start="clk.clk" end="7seg_led.clk" />
+ <connection
+   kind="reset"
+   version="12.1"
+   start="clk.clk_reset"
+   end="7seg_led.reset" />
+ <connection
+   kind="avalon"
+   version="12.1"
+   start="packets_to_master.avalon_master"
+   end="7seg_led.s1">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x0000" />
+ </connection>
 </system>

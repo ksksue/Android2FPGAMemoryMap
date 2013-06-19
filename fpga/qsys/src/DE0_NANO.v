@@ -14,6 +14,7 @@
 module DE0_NANO(
     //////////// LED //////////
     output  [7:0]   oLED,
+    output  [7:0]   o7SEG_LED,
 
     //////////// KEY //////////
     input   [1:0]  iKEY,
@@ -96,7 +97,7 @@ wire        fifo_oe_n;      // output enable for inout buf
 wire        fifo_siwu_n;    // Send Immidiate / Wake Up signal
 
 wire[7:0]   pio_data;       // Parallel IO Data
-
+wire[7:0]	seg_led;			 // 7SEG LED data
 
 //////////////////////////////////////////////////////////////////////////////
 // RTL instance
@@ -109,6 +110,7 @@ wire[7:0]   pio_data;       // Parallel IO Data
 assign clk = iCLOCK_50;
 assign rst = iKEY[0];
 assign oLED = pio_data;
+assign o7SEG_LED = seg_led;
 assign oFIFO_SIWU_n = fifo_siwu_n;
 
 Android2FPGAMemoryMap_FIFO Android2FPGAMemoryMap_FIFO(
@@ -126,6 +128,7 @@ Android2FPGAMemoryMap_FIFO Android2FPGAMemoryMap_FIFO(
     .oSIWU_n(fifo_siwu_n),
 
     .oPIO(pio_data),
+    .o7SEG_PIO(seg_led),
 
     // Connect to System Signals
     .clk(clk),
