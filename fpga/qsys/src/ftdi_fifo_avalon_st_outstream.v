@@ -151,9 +151,9 @@ always@(posedge clk or negedge rst)
             st_data_reg     <= st_data_reg;
             st_ready        <= 1'b0;
             if(wr_done_n == 1'b0) begin
-                state           <= ST_WRITE_FIFO_WAIT_END;
-            end else begin
                 state           <= ST_AVALON_ST_ASSERT_READY;
+            end else begin
+                state           <= ST_WRITE_FIFO_WAIT_END;
             end
         end
 
