@@ -1,0 +1,141 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity" >
+
+    <Button
+        android:id="@+id/btClose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/btOpen"
+        android:layout_alignBottom="@+id/btOpen"
+        android:layout_toRightOf="@+id/btOpen"
+        android:onClick="onClickClose"
+        android:text="Close" />
+
+    <ScrollView
+        android:id="@+id/svText"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/btRead" >
+
+        <TextView
+            android:id="@+id/tvRead"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="" />
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btOpen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:onClick="onClickOpen"
+        android:text="Open" />
+
+    <EditText
+        android:id="@+id/etWriteAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btClose"
+        android:layout_toRightOf="@+id/tvWriteAddress"
+        android:ems="10"
+        android:text="0000" />
+
+    <EditText
+        android:id="@+id/etWriteData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/etWriteAddress"
+        android:layout_below="@+id/etWriteAddress"
+        android:ems="10"
+        android:text="1" >
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/tvWriteData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/etWriteData"
+        android:layout_alignLeft="@+id/tvWriteAddress"
+        android:text="Write Data :       0x" />
+
+    <TextView
+        android:id="@+id/tvWriteAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/etWriteAddress"
+        android:layout_alignLeft="@+id/btOpen"
+        android:text="Write Address : 0x" />
+
+    <Button
+        android:id="@+id/btWrite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tvWriteData"
+        android:layout_below="@+id/tvWriteData"
+        android:onClick="onClickWrite"
+        android:text="Write" />
+
+    <EditText
+        android:id="@+id/etReadData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/etReadAddress"
+        android:layout_below="@+id/etReadAddress"
+        android:editable="false"
+        android:ems="10" />
+
+    <EditText
+        android:id="@+id/etReadAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btDummy"
+        android:layout_toRightOf="@+id/tvReadAddress"
+        android:ems="10"
+        android:text="0000" />
+
+    <Button
+        android:id="@+id/btDummy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/btWrite"
+        android:layout_alignBottom="@+id/btWrite"
+        android:layout_toRightOf="@+id/btOpen"
+        android:text="Button"
+        android:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/tvReadAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/etReadAddress"
+        android:layout_alignLeft="@+id/btWrite"
+        android:text="Read Address : 0x" />
+
+    <TextView
+        android:id="@+id/tvReadData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/etReadData"
+        android:layout_alignLeft="@+id/tvReadAddress"
+        android:text="Read Data :       0x" />
+
+    <Button
+        android:id="@+id/btRead"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvReadData"
+        android:onClick="onClickRead"
+        android:text="Read" />
+
+</RelativeLayout>
