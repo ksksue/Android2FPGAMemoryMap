@@ -6,7 +6,7 @@
 
     <uses-sdk
         android:minSdkVersion="13"
-        android:targetSdkVersion="14" />
+        android:targetSdkVersion="13" />
     <uses-feature android:name="android.hardware.usb.host" /><!-- add -->
 
     <application

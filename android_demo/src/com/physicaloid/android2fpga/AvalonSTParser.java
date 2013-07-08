@@ -40,6 +40,9 @@ import java.util.ArrayList;
  * 1     | Reserved         | Reserved for future use.
  * [3:2] | Size             | Total number of bytes written successfully.
  * "
+ * 
+ * Address/Data packet
+ * Figure 18–3. Bits to Avalon-MM Transaction
  */
 public class AvalonSTParser {
     static final byte ESC   = 0x7d; // Escape
@@ -47,21 +50,145 @@ public class AvalonSTParser {
     static final byte EOP   = 0x7b; // End of Packet
     static final byte CNI   = 0x7c; // Channel Number Indicator
 
-    byte[] command;
-    byte[] address;
-    byte[] data;
+    static final byte TRAN_WRITE            = 0x00; // Write, non-incrementing address
+    static final byte TRAN_WRITE_INC_ADDR   = 0x04; // Write, incrementing address
+    static final byte TRAN_READ             = 0x10; // Read, non-incrementing address
+    static final byte TRAN_READ_INC_ADDR    = 0x14; // Read, incrementing address
+    static final byte TRAN_NO_TRAN          = 0x7F; // No transaction
 
     public AvalonSTParser() {
     }
 
     /**
-     * Convert address and data to an Avalon-ST packet
+     * Convert address and data to an Avalon-ST Write Non-incrementing Address packet
+     * @param address Avalon-ST 4byte address
+     * @param data Avalon-ST 4byte data
+     * @return Avalon-ST packet
+     * @throws Exception
+     */
+    public byte[] createWritePacket(String address, String data) throws Exception{
+        return createPacket(TRAN_WRITE, address, data, 0);
+    }
+
+    /**
+     * Convert address and data to an Avalon-ST Write Incrementing Address packet
+     * @param address Avalon-ST 4byte address
+     * @param data Avalon-ST 4byte data
+     * @return Avalon-ST packet
+     * @throws Exception
+     */
+    public byte[] createWriteIncAddressPacket(String address, String data) throws Exception{
+        return createPacket(TRAN_WRITE_INC_ADDR, address, data, 0);
+    }
+
+    /**
+     * Convert address and data to an Avalon-ST Read Non-incrementing Address packet
+     * @param address Avalon-ST 4byte address
+     * @param byteSize read data byte size
+     * @return Avalon-ST packet
+     * @throws Exception
+     */
+    public byte[] createReadPacket(String address, int byteSize) throws Exception{
+        return createPacket(TRAN_READ, address, "", byteSize);
+    }
+
+    /**
+     * Convert address and data to an Avalon-ST Read Incrementing Address packet
+     * @param address Avalon-ST 4byte address
+     * @param byteSize read data byte size
+     * @return Avalon-ST packet
+     * @throws Exception
+     */
+    public byte[] createReadIncAddressPacket(String address, int byteSize) throws Exception{
+        return createPacket(TRAN_READ_INC_ADDR, address, "", byteSize);
+    }
+
+
+
+    /**
+     * Convert address and data to an Avalon-ST Write Non-incrementing Address packet
      * @param address Avalon-ST address
      * @param data Avalon-ST data
      * @return Avalon-ST packet
      * @throws Exception
      */
-    public byte[] createPacket(String address, String data) throws Exception{
+    public byte[] createWritePacket(byte[] address, byte[] data) throws Exception{
+        return createPacket(TRAN_WRITE, address, data, data.length);
+    }
+
+    /**
+     * Convert address and data to an Avalon-ST Write Incrementing Address packet
+     * @param address Avalon-ST address
+     * @param data Avalon-ST data
+     * @return Avalon-ST packet
+     * @throws Exception
+     */
+    public byte[] createWriteIncAddressPacket(byte[] address, byte[] data) throws Exception{
+        return createPacket(TRAN_WRITE_INC_ADDR, address, data, data.length);
+    }
+
+    /**
+     * Convert address and data to an Avalon-ST Write Non-incrementing Address packet
+     * @param address Avalon-ST address
+     * @param data Avalon-ST data
+     * @param byteSize write data byte size
+     * @return Avalon-ST packet
+     * @throws Exception
+     */
+    public byte[] createWritePacket(byte[] address, byte[] data, int byteSize) throws Exception{
+        return createPacket(TRAN_WRITE, address, data, byteSize);
+    }
+
+    /**
+     * Convert address and data to an Avalon-ST Write Incrementing Address packet
+     * @param address Avalon-ST address
+     * @param data Avalon-ST data
+     * @param byteSize write data byte size
+     * @return Avalon-ST packet
+     * @throws Exception
+     */
+    public byte[] createWriteIncAddressPacket(byte[] address, byte[] data, int byteSize) throws Exception{
+        return createPacket(TRAN_WRITE_INC_ADDR, address, data, byteSize);
+    }
+
+    /**
+     * Convert address and data to an Avalon-ST Read Non-incrementing Address packet
+     * @param address Avalon-ST address
+     * @param data Avalon-ST data
+     * @param byteSize read data byte size
+     * @return Avalon-ST packet
+     * @throws Exception
+     */
+    public byte[] createReadPacket(byte[] address, int byteSize) throws Exception{
+        byte[] data = new byte[1];
+        data[0] = 0;
+        return createPacket(TRAN_READ, address, data, byteSize);
+    }
+
+    /**
+     * Convert address and data to an Avalon-ST Read Incrementing Address packet
+     * @param address Avalon-ST address
+     * @param data Avalon-ST data
+     * @param byteSize read data byte size
+     * @return Avalon-ST packet
+     * @throws Exception
+     */
+    public byte[] createReadIncAddressPacket(byte[] address, int byteSize) throws Exception{
+        byte[] data = new byte[1];
+        data[0] = 0;
+        return createPacket(TRAN_READ_INC_ADDR, address, data, byteSize);
+    }
+
+    /**
+     * Convert address and data to an Avalon-ST packet
+     * @param transaction Transaction code
+     * @param address Avalon-ST address
+     * @param data Avalon-ST data
+     * @param byteSize read/write data byte size
+     * @return Avalon-ST packet
+     * @throws Exception
+     */
+    public byte[] createPacket(byte transaction, String address, String data, int byteSize) throws Exception{
 
         ///////////////////////////////////////////////////
         // Converts int Address to byte array Address
@@ -79,30 +206,44 @@ public class AvalonSTParser {
         ///////////////////////////////////////////////////
         // Converts int Data to byte Data
         ///////////////////////////////////////////////////
-        byte[] bData = new byte[4];
-        int iData;
-        iData = Integer.decode("0x"+data).intValue();
+        if(transaction == TRAN_WRITE || transaction == TRAN_WRITE_INC_ADDR) {
+            if(data.length()==0) {
+                byte[] noData = new byte[1];
+                noData[0] = 0;
+                return noData;
+            }
 
-        bData[0] = (byte)((byte)0xff & (iData >> 8*3));
-        bData[1] = (byte)((byte)0xff & (iData >> 8*2));
-        bData[2] = (byte)((byte)0xff & (iData >> 8*1));
-        bData[3] = (byte)((byte)0xff & (iData));
+            int byteLength = (data.length()+1)/2;
+            byte[] bData = new byte[byteLength];
+            int iData;
+            iData = Integer.decode("0x"+data).intValue();
+
+            for(int i=0; i<byteLength; i++) {
+                bData[i] = (byte)((byte)0xff & (iData >> 8*(byteLength-1-i)));
+            }
+            return createPacket(transaction, bAddress, bData, bData.length);
+        } else {
+            byte[] bData = new byte[1];
+            bData[0] = 0;
+            return createPacket(transaction, bAddress, bData, byteSize);
+        }
         ///////////////////////////////////////////////////
 
-        return createPacket(bAddress, bData);
     }
 
     /**
      * Convert address and data to an Avalon-ST packet
+     * @param transaction Transaction code
      * @param packet output created packet
      * @param address 4 byte Avalon-ST address
      * @param data 1-n byte Avalon-ST data
+     * @param byteSize read/write data byte size
      * @return Avalon-ST packet
      * @throws Exception
      */
-    public byte[] createPacket(byte[] address, byte[] data) throws Exception{
+    public byte[] createPacket(byte transaction, byte[] address, byte[] data, int byteSize) throws Exception{
         ArrayList<Byte> packetArray= new ArrayList<Byte>();
-        createPacket(packetArray, address, data);
+        createPacket(packetArray, transaction, address, data, byteSize);
 
         byte[] packet = new byte[packetArray.size()];
         for(int i=0; i<packetArray.size(); i++) {
@@ -115,25 +256,33 @@ public class AvalonSTParser {
     /**
      * Convert address and data to an Avalon-ST packet
      * @param packet output created packet
+     * @param transaction Transaction code
      * @param address 4 byte avalon-st address
      * @param data 1-n byte avalon-st data
+     * @param byteSize read/write data byte size
      * @throws Exception
      */
-    public void createPacket(ArrayList<Byte> packet, byte[] address, byte[] data) throws Exception{
-        int data_size = data.length;
+    public void createPacket(ArrayList<Byte> packet,byte transaction, byte[] address, byte[] data, int byteSize) throws Exception{
 
+        ////////////////////////////////
+        // Create Packet
+        ////////////////////////////////
         packet.clear();
-        packet.add((byte) 0x00);
-        packet.add((byte) 0x00);
-        packet.add((byte) ((byte)0xff & (data_size >> 8)));
-        packet.add((byte) ((byte)0xff &  data_size));
+        packet.add((byte) transaction);                         // Transaction code
+        packet.add((byte) 0x00);                                // Reserved
+        packet.add((byte) ((byte)0xff & (byteSize >> 8)));     // Size
+        packet.add((byte) ((byte)0xff &  byteSize));           // Size
 
         for(byte addrByte : address) {
-            packet.add(addrByte);
+            packet.add(addrByte);                               // Address
         }
 
-        for(byte dataByte : data) {
-            packet.add(dataByte);
+        if(transaction == TRAN_WRITE || transaction == TRAN_WRITE_INC_ADDR) {
+            for(int i=0; i<byteSize; i++) {
+                packet.add(data[i]);                               // Data
+            }
+        } else {
+            packet.add((byte)0);                               // Data
         }
 
         ////////////////////////////////

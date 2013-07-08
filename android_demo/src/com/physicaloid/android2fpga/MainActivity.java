@@ -111,7 +111,7 @@ public class MainActivity extends Activity {
         byte[] b;
         AvalonSTParser avalonSTParser = new AvalonSTParser();
         try {
-            b = avalonSTParser.createPacket(etAddress.getText().toString(), etData.getText().toString());
+            b = avalonSTParser.createWritePacket(etAddress.getText().toString(), etData.getText().toString());
         } catch (Exception e) {
             Toast.makeText(this, "Fail to create a packet", Toast.LENGTH_LONG).show();
             return;
